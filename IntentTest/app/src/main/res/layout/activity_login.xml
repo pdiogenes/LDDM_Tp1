@@ -49,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLoginFacebook" />
+        app:layout_constraintTop_toBottomOf="@+id/btnInstagramLogin" />
 
     <ImageButton
         android:id="@+id/btnLogoutLinkedin"
@@ -65,7 +65,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLoginFacebook" />
+        app:layout_constraintTop_toBottomOf="@+id/btnInstagramLogin" />
 
     <Button
         android:id="@+id/btnInstagramLogin"
@@ -81,7 +81,7 @@
         android:text="INSTAGRAM LOGIN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogoutLinkedin" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginFacebook" />
 
     <LinearLayout
         android:id="@+id/info"
@@ -96,7 +96,12 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnInstagramLogin">
+        app:layout_constraintTop_toBottomOf="@+id/btnLogoutLinkedin">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <ImageView
             android:id="@+id/pic"

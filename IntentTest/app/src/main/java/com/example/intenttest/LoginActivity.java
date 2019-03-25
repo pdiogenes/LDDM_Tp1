@@ -99,10 +99,10 @@ public class LoginActivity extends AppCompatActivity implements AuthenticationLi
 
         linkedinLogout = (ImageButton) findViewById(R.id.btnLogoutLinkedin);
         linkedinLogout.setVisibility(View.INVISIBLE);
-        linkedinLogin.setOnClickListener(new View.OnClickListener() {
+        linkedinLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                logoutLinkedin();
             }
         });
         instagramLogin = (Button) findViewById(R.id.btnInstagramLogin);
@@ -154,27 +154,26 @@ public class LoginActivity extends AppCompatActivity implements AuthenticationLi
             }
         });
     }
+    public void logoutLinkedin(){
+        LISessionManager.getInstance(getApplicationContext()).clearSession();
+        linkedinLogout.setVisibility(View.GONE);
+        linkedinLogin.setVisibility(View.VISIBLE);
+    }
 
     public void linkedinLogin(){
         LISessionManager.getInstance(getApplicationContext()).init(thisActivity, buildScope(), new AuthListener() {
             @Override
             public void onAuthSuccess() {
-                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                builder.setMessage("Login realizado com sucesso")
-                        .setPositiveButton("OK", null);
 
-                AlertDialog alert = builder.create();
-                alert.show();
+                linkedinLogin.setVisibility(View.GONE);
+                linkedinLogout.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onAuthError(LIAuthError error) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                builder.setMessage("Erro no login")
-                        .setPositiveButton("OK", null);
 
-                AlertDialog alert = builder.create();
-                alert.show();
+                linkedinLogin.setVisibility(View.GONE);
+                linkedinLogout.setVisibility(View.VISIBLE);
             }
         }, true);
     }
@@ -211,6 +210,8 @@ public class LoginActivity extends AppCompatActivity implements AuthenticationLi
         info.setVisibility(View.GONE);
         appPreferences.clear();
     }
+
+
 
 
 
